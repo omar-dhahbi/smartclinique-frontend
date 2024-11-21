@@ -1,0 +1,46 @@
+<div class="position-relative bg-white d-flex p-0">
+  <div class="container-fluid">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+        <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h3 style="text-align: center;">Inscription</h3>
+          </div>
+          <form (ngSubmit)="signup()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingNom" [(ngModel)]="user.nom" name="nom" placeholder="Nom" required>
+              <label for="floatingNom">Nom</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingPrenom" [(ngModel)]="user.prenom" name="prenom" placeholder="Prenom" required>
+              <label for="floatingPrenom">Prenom</label>
+            </div>
+            <div class="mb-4">
+              <label for="photoUpload" class="form-label">Photo</label>
+              <input type="file" class="form-control" id="photoUpload" (change)="uploadImage($event)" accept="image/*">
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.email" name="email" placeholder="name@example.com" required>
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-4">
+              <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="user.password" name="password" placeholder="Password" required>
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="form-floating mb-4">
+              <select class="form-select" id="roleSelect" [(ngModel)]="user.role" name="role" required>
+                <option selected disabled>Choose a role</option>
+                <option value="patient">Patient</option>
+                <option value="medecin">Médecin</option>
+              </select>
+              <label for="roleSelect">Role</label>
+            </div>
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign up</button>
+          </form>
+          <p class="text-center mb-0">Have an account? <a routerLink="/login">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
