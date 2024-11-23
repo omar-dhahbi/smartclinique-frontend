@@ -17,22 +17,16 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
   signup() {
-    let formData = new FormData();
-    formData.append('nom', this.user.nom);
-    formData.append('prenom', this.user.prenom);
-    formData.append('email', this.user.email);
-    formData.append('password', this.user.password)
-    if (this.file) {
-      formData.append('photo', this.user.photo, this.user.photo.name)
-    }
-    formData.append('role', this.user.role);
-    this.auths.register(formData).subscribe(
+
+    this.auths.register(this.user).subscribe(
       (res: any) => {
-        console.log(res)
+
+        console.log(res);
         Swal.fire('Succes !!', 'User registred', 'success').then((e) => {
           this.route.navigate(['login'])
         })
       }, (error) => {
+        console.error(error);
         console.log(Object.values(error.error.error)[0])
         const erors = Object.values(error.error.error)[0]
         this.snack.open(erors + '', '', {

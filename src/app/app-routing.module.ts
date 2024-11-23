@@ -10,13 +10,14 @@ import { adminGuard } from './Guard/Admin/admin.guard';
 import { PatientDashboardComponent } from './pages/Patient/patient-dashboard/patient-dashboard.component';
 import { patientGuard } from './Guard/Patient/patient.guard';
 import { AdminWelcomeComponent } from './pages/admin/admin-welcome/admin-welcome.component';
+import { PatientComponent } from './pages/Patient/patient/patient.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+ 
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'updatepassword/:id', component: UpdatePasswordComponent },
   { path: 'inscription', component: InscriptionComponent },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo:"Patient",pathMatch:"full" },
   {
     path: "Admin", component: DashboardComponent, canActivate: [adminGuard], children: [
       { path: '', component: AdminWelcomeComponent },
@@ -25,11 +26,17 @@ const routes: Routes = [
     ]
   },
   {
-    path: "Patient", component: PatientDashboardComponent, canActivate: [patientGuard], children: [
-
+    path: 'Patient', component: PatientDashboardComponent, canActivate: [patientGuard], children: [
+      {
+         path:'',component:PatientComponent
+      }
 
     ]
-  }
+
+  },
+   { path: '**', redirectTo: 'login', pathMatch: 'full' },
+   { path: 'login', component: LoginComponent },
+
 ];
 
 @NgModule({

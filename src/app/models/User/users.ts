@@ -4,6 +4,6 @@ export class Users {
   prenom: string = '';
   email: string = '';
   password: string = '';
-  photo: any;
-  role:string=''
+  photo: any | null;
+  role:string  ='';
 }

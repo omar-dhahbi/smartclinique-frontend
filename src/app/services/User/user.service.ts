@@ -9,10 +9,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
   public loginstatussubject = new Subject<boolean>();
   login(data: any) {
-    return this.http.post('http://localhost:8080/auth/login', data)
+    return this.http.post('http://localhost:8080/auth/login', data);
   }
-  register(data: FormData) {
-    return this.http.post('http://localhost:8080/auth/register', data)
+  register(data: any) {
+    return this.http.post('http://localhost:8080/auth/signup', data)
   }
   SetToken(token: string) {
     localStorage.setItem('token', token);
@@ -45,7 +45,6 @@ export class UserService {
   }
   setUser(user: any) {
     localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("id", user.id);
   }
 
   getUser() {

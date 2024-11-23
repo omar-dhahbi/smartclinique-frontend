@@ -16,6 +16,7 @@ import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdminWelcomeComponent } from './pages/admin/admin-welcome/admin-welcome.component';
 import Swal from 'sweetalert2';
+import { PatientComponent } from './pages/Patient/patient/patient.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import Swal from 'sweetalert2';
     ForgetPasswordComponent,
     DashboardComponent,
     PatientDashboardComponent,
-    AdminWelcomeComponent
+    AdminWelcomeComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
