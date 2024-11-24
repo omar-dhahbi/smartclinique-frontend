@@ -55,8 +55,7 @@
           </tr>
         </thead>
         <tbody>
-
-          <tr>
+          <tr *ngFor="let user of Array">
             <td>{{ user.nom }}</td>
             <td>{{ user.prenom }}</td>
             <td>{{ user.role }}</td>
@@ -65,7 +64,6 @@
               <a class="btn btn-sm btn-info" routerLink="/Admin/utilisateur/{{ user.id }}"><i class="fa fa-eye"></i> </a>
               <a class="btn btn-sm btn-warning" routerLink="/Admin/ModifierUtilisateur{{ user.id }}"><i class="fa fa-edit"></i></a>
             </td>
-
           </tr>
 
 

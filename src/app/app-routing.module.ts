@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'UpdatePassword/:id', component: UpdatePasswordAdminComponent },
       { path: 'utilisateur/:id', component: UserDetailsComponent },
       { path: 'ModifierUtilisateur/:id', component: UpdateUserComponent },
-      
+
     ]
   },
   {

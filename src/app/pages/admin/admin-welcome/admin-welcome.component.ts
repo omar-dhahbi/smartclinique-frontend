@@ -10,18 +10,21 @@ import { UserService } from 'src/app/services/User/user.service';
 })
 export class AdminWelcomeComponent implements OnInit {
   constructor(private users: UserService, private route: Router) { }
-  user = new Users()
+ user = new Users
   Array: any = []
-
   ngOnInit(): void {
-    this.users.getData().subscribe(
+   this.getData()
+  }
+  getData(){
+ this.users.getData().subscribe(
       (data: any) => {
-        this.Array=data
+        this.Array = data;
         console.log(data);
       }, (error) => {
         console.log(error)
       }
     )
-  }
 
-}
+  }}
+
+
