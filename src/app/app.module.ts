@@ -15,8 +15,21 @@ import { AuthInterceptorProviders } from './services/User/auth.interceptor';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdminWelcomeComponent } from './pages/admin/admin-welcome/admin-welcome.component';
-import Swal from 'sweetalert2';
 import { PatientComponent } from './pages/Patient/patient/patient.component';
+import { SidbarComponent } from './pages/admin/sidbar/sidbar.component';
+import { NavbarComponent } from './pages/admin/navbar/navbar.component';
+import { ProfilAdminComponent } from './pages/admin/profil-admin/profil-admin.component';
+import { patientGuard } from './Guard/Patient/patient.guard';
+import { adminGuard } from './Guard/Admin/admin.guard';
+import { medcineGuard } from './Guard/Medcine/medcine.guard';
+import { MatCardModule } from '@angular/material/card';
+import { UpdateProfiAdminComponent } from './pages/admin/update-profi-admin/update-profi-admin.component';
+import { MatButtonModule } from '@angular/material/button';
+import { UpdatePasswordAdminComponent } from './pages/admin/update-password-admin/update-password-admin.component';
+import { UserDetailsComponent } from './pages/admin/user-details/user-details.component';
+import { UpdateUserComponent } from './pages/admin/update-user/update-user.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +40,14 @@ import { PatientComponent } from './pages/Patient/patient/patient.component';
     DashboardComponent,
     PatientDashboardComponent,
     AdminWelcomeComponent,
-    PatientComponent
+    PatientComponent,
+    SidbarComponent,
+    NavbarComponent,
+    ProfilAdminComponent,
+    UpdateProfiAdminComponent,
+    UpdatePasswordAdminComponent,
+    UserDetailsComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +56,19 @@ import { PatientComponent } from './pages/Patient/patient/patient.component';
     MatSnackBarModule,
     HttpClientModule,
     FormsModule,
+    MatCardModule,
+     MatButtonModule
+
 
   ],
   providers: [
     UserService,
     { provide: 'HEADERS', useValue: new HttpHeaders({ 'Content-Type': 'application/json' }) },
     AuthInterceptorProviders,
+    patientGuard,
+    medcineGuard,
+    adminGuard,
+    UserService
 
 
 

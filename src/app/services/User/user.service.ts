@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
   constructor(private http: HttpClient) { }
-  public loginstatussubject = new Subject<boolean>();
+  // public loginstatussubject = new Subject<boolean>();
   login(data: any) {
     return this.http.post('http://localhost:8080/auth/login', data);
   }
@@ -57,7 +57,19 @@ export class UserService {
       return null
     }
   }
+  getUserById(id: number) {
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get('http://localhost:8080/Admin/' + id, { headers })
 
-
-
+  }
+  getData() {
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get('http://localhost:8080/Admin/all', { headers })
+  }
 }

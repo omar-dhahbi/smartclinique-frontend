@@ -1,0 +1,52 @@
+.container {
+  max-width: 100%;
+  /* Permet au tableau de s'étendre sur toute la largeur */
+  padding: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6c757d;
+  padding: 15px;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.table th {
+  width: 25%;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+  background-color: #f8f9fa;
+}
+
+.table td {
+  text-align: left;
+  padding: 10px;
+}
+
+th,
+td {
+  vertical-align: middle;
+}
+
+.bg-gray {
+  background-color: silver;
+  /* Couleur gris foncé */
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}

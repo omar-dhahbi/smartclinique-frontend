@@ -27,35 +27,33 @@ export class LoginComponent implements OnInit {
 
   }
   login() {
-    
+
     this.auths.login(this.user).subscribe(
       (data: any) => {
         this.auths.SetToken(data.token);
         this.auths.setUser(data.user);
         this.auths.setRole(data.role);
-
         if (data.role == 'Admin') {
-          this.router.navigate(['admin']);
-          this.auths.loginstatussubject.next(true)
+          this.router.navigate(['Admin']);
+          // this.auths.loginstatussubject.next(true)
         }
         else if (data.role == 'Patient') {
           this.router.navigate(['Patient']);
-          this.auths.loginstatussubject.next(true)
+          // this.auths.loginstatussubject.next(true)
         }
         else if (data.role == 'Medcine') {
-          this.router.navigate(['medcine']);
-          this.auths.loginstatussubject.next(true)
+          this.router.navigate(['Medcine']);
+          // this.auths.loginstatussubject.next(true)
         }
         else {
           this.auths.logout()
         }
-      
       }, (error) => {
         console.log('Error')
-        this.snack.open(error.error.error, '', {
+        this.snack.open(error.error, '', {
           duration: 3000
         })
-        console.log(error.error.error)
+        console.log(error.error)
       }
     )
   }
