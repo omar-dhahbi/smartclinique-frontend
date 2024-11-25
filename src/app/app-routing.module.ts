@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'updatepassword/:id', component: UpdatePasswordComponent },
   { path: 'inscription', component: InscriptionComponent },
   {
-    path: "Admin", component: DashboardComponent, canActivate: [adminGuard], children: [
+    path: "Admin", component: DashboardComponent, children: [
       { path: '', component: AdminWelcomeComponent },
       { path: 'profil', component: ProfilAdminComponent },
       { path: 'updateProfil/:id', component: UpdateProfiAdminComponent },

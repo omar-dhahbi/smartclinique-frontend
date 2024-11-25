@@ -12,11 +12,13 @@ export class UserDetailsComponent implements OnInit {
   constructor(private users: UserService, private router: ActivatedRoute) { }
   id: any
   user = new Users
+  detailsUser:any=[]
+
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
     console.log(this.id);
     this.users.getUserById(this.id).subscribe((data: any) => {
-      this.user = data;
+      this.detailsUser = data;
       console.log(data)
     })
   }

@@ -49,11 +49,16 @@ export class LoginComponent implements OnInit {
           this.auths.logout()
         }
       }, (error) => {
-        console.log('Error')
-        this.snack.open(error.error, '', {
-          duration: 3000
-        })
-        console.log(error.error)
+        // this.snack.open(error.error, '', {
+        //   duration: 3000
+        // })
+        console.log(error)
+        if(error.status===401){
+          this.snack.open('Incorrect email or password', '', {
+            duration: 3000,
+          });
+        }
+
       }
     )
   }

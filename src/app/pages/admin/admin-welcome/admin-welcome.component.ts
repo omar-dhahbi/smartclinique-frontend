@@ -1,6 +1,6 @@
-import { Users } from './../../../models/User/users';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/models/User/users';
 import { UserService } from 'src/app/services/User/user.service';
 
 @Component({
@@ -10,21 +10,25 @@ import { UserService } from 'src/app/services/User/user.service';
 })
 export class AdminWelcomeComponent implements OnInit {
   constructor(private users: UserService, private route: Router) { }
- user = new Users
+ user = new Users()
   Array: any = []
+  search=""
   ngOnInit(): void {
    this.getData()
   }
   getData(){
  this.users.getData().subscribe(
       (data: any) => {
-        this.Array = data;
+        this.Array = data.filter((user: Users) => user.role === 'Medcine' || user.role === 'Patient');
         console.log(data);
       }, (error) => {
         console.log(error)
       }
     )
+  }
 
-  }}
+
+
+}
 
 

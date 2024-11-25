@@ -6,7 +6,7 @@
     <div class="card-body">
       <table class="table table-bordered table-striped w-100">
         <tbody>
-          <tr>
+          <tr *ngFor="let user of detailsUser">
             <th>Nom</th>
             <td>{{ user.nom }}</td>
           </tr>

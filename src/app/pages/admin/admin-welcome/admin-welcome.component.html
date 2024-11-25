@@ -42,6 +42,7 @@
   <div class="bg-light text-center rounded p-4">
     <div class="d-flex align-items-center justify-content-between mb-4">
       <h6 class="mb-0">Liste des uutilisateur</h6>
+      <input type="text" class="form-control w-25" placeholder="search" [(ngModel)]="search" >
     </div>
     <div class="table-responsive">
       <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -61,13 +62,14 @@
             <td>{{ user.role }}</td>
             <td>Paid</td>
             <td>
-              <a class="btn btn-sm btn-info" routerLink="/Admin/utilisateur/{{ user.id }}"><i class="fa fa-eye"></i> </a>
-              <a class="btn btn-sm btn-warning" routerLink="/Admin/ModifierUtilisateur{{ user.id }}"><i class="fa fa-edit"></i></a>
+              <a class="btn btn-sm btn-info" routerLink="/Admin/utilisateur/{{ user.id }}">
+                <i class="fa fa-eye"></i>
+              </a>
+              <a class="btn btn-sm btn-warning" routerLink="/Admin/ModifierUtilisateur{{ user.id }}">
+                <i class="fa fa-edit"></i>
+              </a>
             </td>
           </tr>
-
-
-
         </tbody>
       </table>
     </div>

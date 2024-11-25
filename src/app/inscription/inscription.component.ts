@@ -14,10 +14,21 @@ export class InscriptionComponent implements OnInit {
   constructor(private auths: UserService, private snack: MatSnackBar, private route: Router) { }
   file!: File;
   user = new Users()
+  namePattern = /^[A-Za-z]/;
+
   ngOnInit(): void {
   }
   signup() {
-
+    if (!this.user.nom || !this.user.prenom || !this.user.password || !this.user.role || this.user.role === 'Choose a role') {
+      this.snack.open('Tous les champs sont obligatoires', '', {
+        duration: 3000,
+      });
+    }
+    else if (!this.namePattern.test(this.user.nom) || !this.namePattern.test(this.user.prenom)) {
+      this.snack.open('Le nom et le prénom doivent contenir uniquement des  lettere', '', {
+        duration: 3000,
+      });
+    }
     this.auths.register(this.user).subscribe(
       (res: any) => {
 
@@ -26,13 +37,8 @@ export class InscriptionComponent implements OnInit {
           this.route.navigate(['login'])
         })
       }, (error) => {
-        console.error(error);
-        console.log(Object.values(error.error.error)[0])
-        const erors = Object.values(error.error.error)[0]
-        this.snack.open(erors + '', '', {
-          duration: 3000
-        })
         console.log(error)
+
       }
     )
   }
